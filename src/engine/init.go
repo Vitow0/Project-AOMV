@@ -1,10 +1,9 @@
 package engine
 
 import (
-	"fmt"
 	"main/src/entity"
 	"main/src/item"
-	"time"
+	"strconv"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -110,17 +109,21 @@ func (e *Engine) InitMusic() {
 
 	rl.PlayMusicStream(e.Music)
 }
+func (e *Engine) NewHealtBar () {
+	rl.InitWindow(800,600, "ShowHealth")
+	defer rl.CloseWindow()
+	
+	player := entity.Player{Health: 100}
 
-func (e *Engine) RenderHealth() {
-	for health := 100; health > 0; health-- {
-		if health == 0 {
-		fmt.Println("Game"," ", "over")
-			rl.DrawTexture
-				rl.NewRectangle(0, 0, 40, 10, red), // 10= zoom sur le sprit
-				rl.NewRectangle(health.Position.X, health.Position.Y, 20, 20), //changement de taille du mob (la meme partie de sprite sera montrer)
-				rl.Vector2{X: 0, Y: 0},
-				0,
-				rl.Red,
-		}	
+	for !rl.WindowShouldClose() {
+		rl.BeginDrawing()
+		rl.ClearBackground(rl.RayWhite)
+		displayHealth(player.Health)
+		rl.EndDrawing()
 	}
+}
+
+func displayHealth(health int) {
+	healthText := "Vie: " + strconv.Itoa(health)
+	rl.DrawText(healthText, 10, 10, 20, rl.Red)
 }
