@@ -31,7 +31,7 @@ func (e *Engine) Init() {
 func (e *Engine) InitEntities() {
 
 	e.Player = entity.Player{
-		Position:  rl.Vector2{X: 300, Y: 300},
+		Position:  rl.Vector2{X: 600, Y: 350},
 		Health:    100,
 		Money:     1000,
 		Speed:     5,
@@ -109,10 +109,10 @@ func (e *Engine) InitMusic() {
 
 	rl.PlayMusicStream(e.Music)
 }
-func (e *Engine) NewHealtBar () {
-	rl.InitWindow(800,600, "ShowHealth")
+func (e *Engine) NewHealtBar() {
+	rl.InitWindow(800, 600, "ShowHealth")
 	defer rl.CloseWindow()
-	
+
 	player := entity.Player{Health: 100}
 
 	for !rl.WindowShouldClose() {
