@@ -1,8 +1,10 @@
 package engine
 
 import (
+	"fmt"
 	"main/src/entity"
 	"main/src/item"
+	"time"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -107,4 +109,18 @@ func (e *Engine) InitMusic() {
 	e.Music = rl.LoadMusicStream("sounds/music/OSC-Ambient-Time-08-Egress.mp3")
 
 	rl.PlayMusicStream(e.Music)
+}
+
+func (e *Engine) RenderHealth() {
+	for health := 100; health > 0; health-- {
+		if health == 0 {
+		fmt.Println("Game"," ", "over")
+			rl.DrawTexture
+				rl.NewRectangle(0, 0, 40, 10, red), // 10= zoom sur le sprit
+				rl.NewRectangle(health.Position.X, health.Position.Y, 20, 20), //changement de taille du mob (la meme partie de sprite sera montrer)
+				rl.Vector2{X: 0, Y: 0},
+				0,
+				rl.Red,
+		}	
+	}
 }
