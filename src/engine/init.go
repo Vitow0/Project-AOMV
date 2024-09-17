@@ -3,6 +3,7 @@ package engine
 import (
 	"main/src/entity"
 	"main/src/item"
+	"strconv"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -107,4 +108,22 @@ func (e *Engine) InitMusic() {
 	e.Music = rl.LoadMusicStream("sounds/music/OSC-Ambient-Time-08-Egress.mp3")
 
 	rl.PlayMusicStream(e.Music)
+}
+func (e *Engine) NewHealtBar () {
+	rl.InitWindow(800,600, "ShowHealth")
+	defer rl.CloseWindow()
+	
+	player := entity.Player{Health: 100}
+
+	for !rl.WindowShouldClose() {
+		rl.BeginDrawing()
+		rl.ClearBackground(rl.RayWhite)
+		displayHealth(player.Health)
+		rl.EndDrawing()
+	}
+}
+
+func displayHealth(health int) {
+	healthText := "Vie: " + strconv.Itoa(health)
+	rl.DrawText(healthText, 10, 10, 20, rl.Red)
 }
