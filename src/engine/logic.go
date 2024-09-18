@@ -7,7 +7,6 @@ import (
 )
 
 func (e *Engine) HomeLogic() {
-
 	//Musique
 	if !rl.IsMusicStreamPlaying(e.Music) {
 		e.Music = rl.LoadMusicStream("sounds/music/OSC-Ambient-Time-08-Egress.mp3")
@@ -37,6 +36,7 @@ func (e *Engine) SettingsLogic() {
 }
 
 func (e *Engine) InGameLogic() {
+
 	// Mouvement
 	if rl.IsKeyDown(rl.KeyW) || rl.IsKeyDown(rl.KeyUp) {
 		e.Player.Position.Y -= e.Player.Speed

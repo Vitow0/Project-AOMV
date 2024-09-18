@@ -63,16 +63,27 @@ func (e *Engine) RenderPlayer() {
 
 func (e *Engine) RenderMonsters() {
 	for _, monster := range e.Monsters {
-		if monster.Name == "Slime" {
+		if monster.Name == "scale-a-ton" {
 			rl.DrawTexturePro(
 				monster.Sprite,
-				rl.NewRectangle(0, 0, 40, 40), // 10= zoom sur le sprit
-				rl.NewRectangle(monster.Position.X, monster.Position.Y, 20, 20), //changement de taille du mob (la meme partie de sprite sera montrer)
+				rl.NewRectangle(0, 0, 100, 100), // 10= zoom sur le sprit
+				rl.NewRectangle(monster.Position.X, monster.Position.Y, 300, 300), //changement de taille du mob (la meme partie de sprite sera montrer)
 				rl.Vector2{X: 0, Y: 0},
 				0,
 				rl.White,
 			)
 		} else {
+			if monster.Name == "Slime" {
+				rl.DrawTexturePro(
+					monster.Sprite,
+					rl.NewRectangle(0, 0, 40, 40), // 10= zoom sur le sprit
+					rl.NewRectangle(monster.Position.X, monster.Position.Y, 100, 100), //changement de taille du mob (la meme partie de sprite sera montrer)
+					rl.Vector2{X: 0, Y: 0},
+					0,
+					rl.White,
+				)
+			}
+
 			rl.DrawTexturePro(
 				monster.Sprite,
 				rl.NewRectangle(0, 0, 100, 100),
@@ -95,6 +106,5 @@ func (e *Engine) RenderDialog(m entity.Monster, sentence string) {
 		10,
 		rl.RayWhite,
 	)
-
 	rl.EndMode2D()
 }

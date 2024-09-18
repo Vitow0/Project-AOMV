@@ -3,7 +3,6 @@ package engine
 import (
 	"main/src/entity"
 	"main/src/item"
-	"strconv"
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -25,7 +24,6 @@ func (e *Engine) Init() {
 	e.InitCamera()
 	e.InitMusic()
 	e.InitMap("textures/map/tilesets/map.json")
-
 }
 
 func (e *Engine) InitEntities() {
@@ -34,7 +32,7 @@ func (e *Engine) InitEntities() {
 		Position:  rl.Vector2{X: 600, Y: 350},
 		Health:    100,
 		Money:     1000,
-		Speed:     5,
+		Speed:     10,
 		Inventory: []item.Item{},
 
 		IsAlive: true,
@@ -90,6 +88,18 @@ func (e *Engine) InitEntities() {
 		Sprite:  rl.LoadTexture("textures/entities/Slime/Slime-idle.PNG"),
 	})
 
+	e.Monsters = append(e.Monsters, entity.Monster{
+		Name:     "scale-a-ton",
+		Position: rl.Vector2{X: 345, Y: 320},
+		Health:   45,
+		Damage:   9,
+		Loot:     []item.Item{}, //items ==} épée ou armure
+		Worth:    17,
+
+		IsAlive: true,
+		Sprite:  rl.LoadTexture("textures/entities/scale-a-ton/skeleton-idle.PNG"),
+	})
+
 	e.Player.Money = 12
 }
 
@@ -108,22 +118,4 @@ func (e *Engine) InitMusic() {
 	e.Music = rl.LoadMusicStream("sounds/music/OSC-Ambient-Time-08-Egress.mp3")
 
 	rl.PlayMusicStream(e.Music)
-}
-func (e *Engine) NewHealtBar() {
-	rl.InitWindow(800, 600, "ShowHealth")
-	defer rl.CloseWindow()
-
-	player := entity.Player{Health: 100}
-
-	for !rl.WindowShouldClose() {
-		rl.BeginDrawing()
-		rl.ClearBackground(rl.RayWhite)
-		displayHealth(player.Health)
-		rl.EndDrawing()
-	}
-}
-
-func displayHealth(health int) {
-	healthText := "Vie: " + strconv.Itoa(health)
-	rl.DrawText(healthText, 10, 10, 20, rl.Red)
 }
