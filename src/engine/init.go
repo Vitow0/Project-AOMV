@@ -66,7 +66,7 @@ func (e *Engine) InitEntities() {
 
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "Slime",
-		Position: rl.Vector2{X: 385, Y: 330},
+		Position: rl.Vector2{X: 680, Y: 430},
 		Health:   45,
 		Damage:   9,
 		Loot:     []item.Item{}, //items ==} épée ou armure
@@ -90,14 +90,26 @@ func (e *Engine) InitEntities() {
 
 	e.Monsters = append(e.Monsters, entity.Monster{
 		Name:     "scale-a-ton",
-		Position: rl.Vector2{X: 345, Y: 320},
+		Position: rl.Vector2{X: 735, Y: 430},
 		Health:   45,
 		Damage:   9,
 		Loot:     []item.Item{}, //items ==} épée ou armure
 		Worth:    17,
 
 		IsAlive: true,
-		Sprite:  rl.LoadTexture("textures/entities/scale-a-ton/skeleton-idle.PNG"),
+		Sprite:  rl.LoadTexture("textures/entities/scale-a-ton/skeleton-idle.png"),
+	})
+
+	e.Monsters = append(e.Monsters, entity.Monster{
+		Name:     "drae",
+		Position: rl.Vector2{X: 550, Y: 430},
+		Health:   45,
+		Damage:   9,
+		Loot:     []item.Item{}, //items ==} épée ou armure
+		Worth:    17,
+
+		IsAlive: true,
+		Sprite:  rl.LoadTexture("textures/entities/drae/image - 2024-09-08T170707.626 (1).png"),
 	})
 
 	e.Player.Money = 12

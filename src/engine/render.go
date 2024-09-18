@@ -52,7 +52,7 @@ func (e *Engine) RenderPlayer() {
 
 	rl.DrawTexturePro(
 		e.Player.Sprite,
-		rl.NewRectangle(0, 0, 100, 100),
+		rl.NewRectangle(0, 0, 80, 80),
 		rl.NewRectangle(e.Player.Position.X, e.Player.Position.Y, 150, 150),
 		rl.Vector2{X: 0, Y: 0},
 		0,
@@ -66,8 +66,8 @@ func (e *Engine) RenderMonsters() {
 		if monster.Name == "scale-a-ton" {
 			rl.DrawTexturePro(
 				monster.Sprite,
-				rl.NewRectangle(0, 0, 100, 100), // 10= zoom sur le sprit
-				rl.NewRectangle(monster.Position.X, monster.Position.Y, 300, 300), //changement de taille du mob (la meme partie de sprite sera montrer)
+				rl.NewRectangle(0, 0, 60, 60), // 10= zoom sur le sprit
+				rl.NewRectangle(monster.Position.X, monster.Position.Y, 90, 90), //changement de taille du mob (la meme partie de sprite sera montrer)
 				rl.Vector2{X: 0, Y: 0},
 				0,
 				rl.White,
@@ -77,21 +77,34 @@ func (e *Engine) RenderMonsters() {
 				rl.DrawTexturePro(
 					monster.Sprite,
 					rl.NewRectangle(0, 0, 40, 40), // 10= zoom sur le sprit
-					rl.NewRectangle(monster.Position.X, monster.Position.Y, 100, 100), //changement de taille du mob (la meme partie de sprite sera montrer)
+					rl.NewRectangle(monster.Position.X, monster.Position.Y, 50, 50), //changement de taille du mob (la meme partie de sprite sera montrer)
 					rl.Vector2{X: 0, Y: 0},
 					0,
 					rl.White,
 				)
+			} else {
+				if monster.Name == "drae" {
+					rl.DrawTexturePro(
+						monster.Sprite,
+						rl.NewRectangle(5, 0, 75, 70), // 10= zoom sur le sprit
+						rl.NewRectangle(monster.Position.X, monster.Position.Y, 110, 110), //changement de taille du mob (la meme partie de sprite sera montrer)
+						rl.Vector2{X: 0, Y: 0},
+						0,
+						rl.White,
+					)
+				} else {
+					if monster.Name == "claude" {
+						rl.DrawTexturePro(
+							monster.Sprite,
+							rl.NewRectangle(0, 0, 40, 40), // 10= zoom sur le sprit
+							rl.NewRectangle(monster.Position.X, monster.Position.Y, 60, 60), //changement de taille du mob (la meme partie de sprite sera montrer)
+							rl.Vector2{X: 0, Y: 0},
+							0,
+							rl.White,
+						)
+					}
+				}
 			}
-
-			rl.DrawTexturePro(
-				monster.Sprite,
-				rl.NewRectangle(0, 0, 100, 100),
-				rl.NewRectangle(monster.Position.X, monster.Position.Y, 150, 150),
-				rl.Vector2{X: 0, Y: 0},
-				0,
-				rl.White,
-			)
 		}
 	}
 }
