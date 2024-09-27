@@ -27,9 +27,9 @@ func (e *Engine) SettingsRendering() { // Menu Keybinds
 	rl.DrawText("Key Binds", int32(rl.GetScreenWidth())/2-rl.MeasureText("Key Binds", 90)/2, int32(rl.GetScreenHeight())/2-400, 90, rl.RayWhite)
 	
 	rl.DrawText("[U] to Stop music", int32(rl.GetScreenWidth())/2-rl.MeasureText("[U] to Stop music", 81)/2, int32(rl.GetScreenHeight())/2-200, 30, rl.RayWhite)
-	rl.DrawText("[I] to Play music", int32(rl.GetScreenWidth())/2-rl.MeasureText("[I] to Play music", 87)/2, int32(rl.GetScreenHeight())/2-150, 30, rl.RayWhite)
+	rl.DrawText("[Y] to Play music", int32(rl.GetScreenWidth())/2-rl.MeasureText("[Y] to Play music", 83)/2, int32(rl.GetScreenHeight())/2-150, 30, rl.RayWhite)
 	rl.DrawText("[P] Show main quest", int32(rl.GetScreenWidth())/2-rl.MeasureText("[P] Show main quest", 70)/2, int32(rl.GetScreenHeight())/2-100, 30, rl.RayWhite)
-
+	rl.DrawText("[I] Open Inventory", int32(rl.GetScreenWidth())/2-rl.MeasureText("[I] Open Inventory", 75)/2, int32(rl.GetScreenHeight())/2-50, 30, rl.RayWhite)
 	rl.DrawText("[E] to Fight", int32(rl.GetScreenWidth())/2-rl.MeasureText("[E] to Fight", 120)/2, int32(rl.GetScreenHeight())/2, 30, rl.RayWhite)
 
 	rl.DrawText("[W] Go Foraward", int32(rl.GetScreenWidth())/2+110, int32(rl.GetScreenHeight())/2-200, 30, rl.RayWhite)

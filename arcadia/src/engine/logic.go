@@ -7,6 +7,10 @@ import (
 )
 
 func (e *Engine) HomeLogic() {
+	//full screen
+	if rl.IsKeyPressed(rl.KeyTab) {
+        rl.ToggleFullscreen()
+    } 
 
 	//Musique
 	if !rl.IsMusicStreamPlaying(e.Music) {
@@ -38,6 +42,11 @@ func (e *Engine) HomeLogic() {
 }
 
 func (e *Engine) SettingsLogic() {
+	//full screen
+	if rl.IsKeyPressed(rl.KeyTab) {
+        rl.ToggleFullscreen()
+    } 
+
 	//Menus
 	if rl.IsKeyPressed(rl.KeyEscape) {
 		e.StateMenu = HOME
@@ -47,6 +56,11 @@ func (e *Engine) SettingsLogic() {
 	rl.UpdateMusicStream(e.Music)
 }
 func (e *Engine) GameOverLogic() {
+	//full screen
+	if rl.IsKeyPressed(rl.KeyTab) {
+        rl.ToggleFullscreen()
+    } 
+
 	if rl.IsKeyPressed(rl.KeyEscape) {
 		e.StateMenu = HOME
 	}
@@ -60,8 +74,10 @@ func (e *Engine) GameOverLogic() {
 }
 
 func (e *Engine) InGameLogic() {
-	
-	
+	//full screen
+	if rl.IsKeyPressed(rl.KeyTab) {
+        rl.ToggleFullscreen()
+    } 	
 
 	// Camera
 	e.Camera.Target = rl.Vector2{X: e.Player.Position.X + 70, Y: e.Player.Position.Y + 70}
@@ -157,12 +173,12 @@ func (e *Engine) MonsterCollisions() {
 			}
 
 			// Dialogue pour "Slime"
-			if monster.Name == "Slime" {
+			if monster.Name == "Slime1" {
 				e.NormalTalk(monster, "Oh...\n,Cela fais fo-fo-FORRT longtemps\n que je n'ai pas vue d'humain...\nSurvie a l'épreuve de la foret\n, aide moi a sauver Arcadia...")
 				if rl.IsKeyPressed(rl.KeyE) {
 
 				}
-			} else if monster.Name == "Slime1" {
+			} else if monster.Name == "Slime" {
 				e.NormalTalk(monster, "Intéréssant...\ntu te débrouilles bien HUMAIN...\n Désormais tu dois vaincre les monstres qui occupent mon chateau\n Bonne chance, AhaAHAHah...")
 			}
 		}
@@ -173,6 +189,11 @@ func (e *Engine) NormalTalk(m entity.Monster, sentence string) {
 }
 
 func (e *Engine) PauseLogic() {
+	//full screen
+	if rl.IsKeyPressed(rl.KeyTab) {
+        rl.ToggleFullscreen()
+    } 
+
 	//Menus
 	if rl.IsKeyPressed(rl.KeyEscape) || rl.IsKeyPressed(rl.KeyP) {
 		e.StateEngine = INGAME
@@ -186,13 +207,12 @@ func (e *Engine) PauseLogic() {
 	rl.UpdateMusicStream(e.Music)
 }
 
-func (e *Engine) GAMEOVERLogic() {
-	if rl.IsKeyPressed(rl.KeyEscape) {
-		e.StateEngine = PAUSE
-	}
-}
-
 func (e *Engine) QuestLogic() {
+	//full screen
+	if rl.IsKeyPressed(rl.KeyTab) {
+        rl.ToggleFullscreen()
+    } 
+
 	if rl.IsKeyPressed(rl.KeyQ) { // go back in game
 		e.StateMenu = PLAY
 		e.StateEngine = INGAME
@@ -227,11 +247,4 @@ func (e *Engine) ManageInventory() { // add items to each type and add the filte
 
 	inventory.SortInventory("value")
 	inventory.DisplayInventory()	
-}
-
-func (e *Engine) FullScreen() {
-	// put in full screen
-    if rl.IsKeyPressed(rl.KeyTab) {
-        rl.ToggleFullscreen()
-    }
 }

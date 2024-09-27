@@ -3,7 +3,6 @@ package engine
 import (
 	"main/src/entity"
 	"main/src/item"
-	
 
 	rl "github.com/gen2brain/raylib-go/raylib"
 )
@@ -57,7 +56,7 @@ func (e *Engine) InitEntities() {
 		Sprite:  rl.LoadTexture("textures/entities/orc/Orc-Idle.png"),
 	})
 	e.Monsters = append(e.Monsters, entity.Monster{
-		Name:     "Slime",
+		Name:     "Slime1",
 		Position: rl.Vector2{X: 640, Y: 260},
 		Health:   45,
 		Damage:   9,
@@ -155,7 +154,7 @@ func (e *Engine) InitEntities() {
 }
 
 func (e *Engine) InitCamera() {
-	e.Camera = rl.NewCamera2D( // init Camera 
+	e.Camera = rl.NewCamera2D( // init Camera
 		rl.NewVector2(0, 0),
 		rl.NewVector2(0, 0),
 		0.0,
@@ -172,23 +171,23 @@ func (e *Engine) InitMusic() {
 }
 
 func (engine *Engine) InitInventory() {
-    appleImage := rl.LoadTexture("textures/Menu/apple_regular.png") // Load the apple texture
-    if appleImage.ID == 0 {
-        rl.DrawText("Failed to load apple texture", int32(20), int32(20), 20, rl.RayWhite)
-    }
-    engine.AppleTexture = appleImage
+	appleImage := rl.LoadTexture("textures/Menu/apple_regular.png") // Load the apple texture
+	if appleImage.ID == 0 {
+		rl.DrawText("Failed to load apple texture", int32(20), int32(20), 20, rl.RayWhite)
+	}
+	engine.AppleTexture = appleImage
 
-    swordImage := rl.LoadTexture("textures/Menu/Sword.png") // Load the sword texture
-    if swordImage.ID == 0 {
-        rl.DrawText("Failed to load sword texture", int32(20), int32(20), 20, rl.RayWhite)
-    }
-    engine.SwordTexture = swordImage
+	swordImage := rl.LoadTexture("textures/Menu/Sword.png") // Load the sword texture
+	if swordImage.ID == 0 {
+		rl.DrawText("Failed to load sword texture", int32(20), int32(20), 20, rl.RayWhite)
+	}
+	engine.SwordTexture = swordImage
 
-    shieldImage := rl.LoadTexture("textures/Menu/Shield.png") // Load the shield texture
-    if shieldImage.ID == 0 {
-        rl.DrawText("Failed to load shield texture", int32(20), int32(20), 20, rl.RayWhite)
-    }
-    engine.ShieldTexture = shieldImage
-    
-    engine.InitInventory2()  // Initialize inventory 
+	shieldImage := rl.LoadTexture("textures/Menu/Shield.png") // Load the shield texture
+	if shieldImage.ID == 0 {
+		rl.DrawText("Failed to load shield texture", int32(20), int32(20), 20, rl.RayWhite)
+	}
+	engine.ShieldTexture = shieldImage
+
+	engine.InitInventory2() // Initialize inventory
 }
