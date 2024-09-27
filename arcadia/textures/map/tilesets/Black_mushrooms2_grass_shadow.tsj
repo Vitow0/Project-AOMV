@@ -1,0 +1,14 @@
+{ "columns":2,
+ "image":"..\/..\/..\/..\/T\u00e9l\u00e9chargements\/craftpix-net-639143-free-rocky-area-objects-pixel-art\/PNG\/Objects_separately\/Black_mushrooms2_grass_shadow.png",
+ "imageheight":64,
+ "imagewidth":64,
+ "margin":0,
+ "name":"Black_mushrooms2_grass_shadow",
+ "spacing":0,
+ "tilecount":4,
+ "tiledversion":"1.11.0",
+ "tileheight":32,
+ "tilewidth":32,
+ "type":"tileset",
+ "version":"1.10"
+}
